@@ -15,7 +15,7 @@ case $EMACSCLIENT_INSTALLED in
         if [[ -n $DISPLAY ]]; then
             emacsclient -a '' -c $EMACSCLIENT_ARGS $@
         else
-            emacsclient -a '' -c -nw $EMACSCLIENT_ARGS $@
+            emacsclient -a '' -c -nw $@
         fi
         ;;
     *)
