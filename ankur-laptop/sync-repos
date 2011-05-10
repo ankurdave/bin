@@ -1,10 +1,10 @@
 #!/bin/bash
 
-pushd ~
-for repo in ankurdave.com ankur-photos bagel cloudclustering cloudclustering-paper cs61a cs61c cs61c-proj{1,2,3,4} cs70 distboggle dotfiles engl31ac kmeans-spark latex math53 music-index physics7a quorastats resume spark-pagerank-performance
+pushd ~/repos
+for repo in $(find . -mindepth 1 -maxdepth 1 -type d | sed 's/^\.\///')
 do
     pushd $repo
-    ssh dave-server git init --bare ~/git/$repo
+    ssh dave-server "if [ ! -d ~/git/$repo ]; then git init --bare ~/git/$repo; fi"
     git push --mirror dave-server:git/$repo
     popd
 done
