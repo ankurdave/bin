@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+~/spark/bin/stop-all.sh
+
+cd ~/graphx
+bin/stop-all.sh
+sbt/sbt assembly
+~/spark-ec2/copy-dir .
+bin/start-all.sh

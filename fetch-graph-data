@@ -1,0 +1,16 @@
+#!/bin/bash
+
+mkdir -p /mnt/benchmark/graph_data
+cd /mnt/benchmark/graph_data
+
+wget http://snap.stanford.edu/data/bigdata/communities/com-lj.ungraph.txt.gz
+gunzip com-lj.ungraph.txt.gz
+~/ephemeral-hdfs/bin/hadoop fs -put com-lj.ungraph.txt /
+
+wget http://snap.stanford.edu/data/soc-LiveJournal1.txt.gz
+gunzip soc-LiveJournal1.txt.gz
+~/ephemeral-hdfs/bin/hadoop fs -put soc-LiveJournal1.txt /
+
+wget http://snap.stanford.edu/data/web-Google.txt.gz
+gunzip web-Google.txt.gz
+~/ephemeral-hdfs/bin/hadoop fs -put web-Google.txt /
